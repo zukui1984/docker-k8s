@@ -18,7 +18,7 @@ cd flask-docker-app
 python -m venv venv
 source venv\Scripts\activate
 ```
-![image](https://github.com/user-attachments/assets/5e69cab8-5cc9-4a57-9aa0-9c9e97e8b2ed)
+<img src="https://github.com/user-attachments/assets/5e69cab8-5cc9-4a57-9aa0-9c9e97e8b2ed" width="200" />
 
 4. Create Flask application
 ```python
@@ -53,8 +53,7 @@ docker run -p 5000:5000 flask-docker-app
 ```
 8. Testing on "localhost:5000" & you should see this
 
-![image](https://github.com/user-attachments/assets/82456aba-42a3-4934-90c3-de1d57df029c)
-
+<img src="https://github.com/user-attachments/assets/82456aba-42a3-4934-90c3-de1d57df029c" width="300" />
 
 9.  
 10. 
