@@ -56,12 +56,7 @@ docker run -p 5000:5000 flask-docker-app
 <img src="https://github.com/user-attachments/assets/82456aba-42a3-4934-90c3-de1d57df029c" width="300" />
 
 9.  
-10. 
-11. 
-12. 
-13.  
-14. 
-15. 
+   
 
 
 ## Project 2 - Flask app on Minikube locally ##
