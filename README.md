@@ -1,4 +1,4 @@
-# Docker & Kubernetes Project
+# Docker & Kubernetes (GKE & Minikube) Project
 
 ## Content ##
 1. Flask app with Docker (Python)
