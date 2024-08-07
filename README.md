@@ -55,11 +55,21 @@ docker run -p 5000:5000 flask-docker-app
 
 <img src="https://github.com/user-attachments/assets/82456aba-42a3-4934-90c3-de1d57df029c" width="300" />
 
-9.  
-   
-
-
 ## Project 2 - Flask app on Minikube locally ##
-
+1. Start minikube - "minikube start"
+2. Create deployment.yaml & service.yaml
+```bash
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+```
+4. Load the Docker image into Minikube "minikube image load flask-app"
+5. Expose deployment
+```bash
+kubectl expose deployment flask-kube-demo --type=LoadBalancer --port=5000"
+```
+6. Run Minikube service URL 
+```bash
+minikube service flask-app --url
+```
 
 ## Project 3 - Flask app on GKE ##
