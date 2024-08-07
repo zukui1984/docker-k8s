@@ -136,10 +136,12 @@ gcloud artifacts repositories create flask-app \
    ```bash
    kubectl apply -f deployment.yaml
    ```
+   
    - Expose the deployment
    ```bash
    kubectl expose deployment flask-app --type=LoadBalancer --port=5000
    ```
+   
    - Check if everything running properly with "kubectl get pods" or "kubectl get deployments"
      
     <img src="https://github.com/user-attachments/assets/91085cf6-2210-4c1f-9aaf-b8fb42a4b210" width="600"/>
@@ -148,6 +150,7 @@ gcloud artifacts repositories create flask-app \
    ```bash
    kubectl get service flask-app
    ```
+   
    ![image](https://github.com/user-attachments/assets/4fbef351-f9b9-4167-869b-9cd5e4b0423a)
 
 
