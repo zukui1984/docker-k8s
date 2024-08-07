@@ -153,4 +153,9 @@ gcloud artifacts repositories create flask-app \
    
    ![image](https://github.com/user-attachments/assets/4fbef351-f9b9-4167-869b-9cd5e4b0423a)
 
+ 6. Delete Kubernetes if you dont use them anymore
+    - kubectl delete deployments --all --all-namespaces
+    - kubectl delete services --all --all-namespaces
+    - kubectl delete pods --all --all-namespaces
 
+ 
