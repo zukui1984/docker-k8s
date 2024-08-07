@@ -57,7 +57,10 @@ docker run -p 5000:5000 flask-docker-app
 
 ## Project 2 - Flask app on Minikube locally ##
 1. Start minikube - "minikube start"
-2. Create deployment.yaml & service.yaml
+
+<img src="https://github.com/user-attachments/assets/d2ac11f0-6333-46ff-88cf-ebd2625f4a49" width="600" />
+
+3. Create deployment.yaml & service.yaml - (LINK[https://github.com/zukui1984/docker-k8s-project/blob/master/deplyoment.yaml])
 ```bash
 kubectl apply -f deployment.yaml
 kubectl apply -f service.yaml
@@ -128,3 +131,6 @@ gcloud artifacts repositories create flask-app \
    ```bash
    kubectl get service flask-app
    ```
+   ![image](https://github.com/user-attachments/assets/4fbef351-f9b9-4167-869b-9cd5e4b0423a)
+
+
