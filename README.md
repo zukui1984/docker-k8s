@@ -73,3 +73,58 @@ minikube service flask-app --url
 ```
 
 ## Project 3 - Flask app on GKE ##
+1. Enable Google Artifact Registry either from API Library or command-line (Cloud Shell)
+2. Create docker repository in Artifact Registry
+```bash
+gcloud artifacts repositories create flask-app \
+    --repository-format=docker \
+    --location=us-central1 \
+    --description="Hello Docker Container"
+```
+3. Push Docker Image
+    - Configure Docker to authenticate request to Artifact Registry. "gcloud auth configure-docker us-central1-docker.pkg.dev"
+    - Tag Docker local Image. "docker tag flask-kube-demo us-central1-docker.pkg.dev/docker-k8s-431619/flask-app/flask-app"
+    - Push Image to Artifact Registry. "docker push us-central1-docker.pkg.dev/docker-k8s-431619/flask-app/flask-app"
+
+4. Set up Google Artifact Registry
+    - Create GKE cluster
+   ```bash
+   gcloud container clusters create flask-app \
+   --num-nodes=3 \
+   --region=us-central1
+   ```
+    - Get authentication credentials for the cluster
+   ```bash
+   gcloud container clusters get-credentials flask-app --region=us-central1
+   ```
+5. Deploy the Application to GKE
+   - Create GKE Cluster
+   ```bash
+   gcloud container clusters create flask-app-cluster \
+    --num-nodes=3 \
+    --region=us-central1
+   ```
+   - Get authentication credentials for the cluster
+   ```bash
+   gcloud container clusters get-credentials flask-app-cluster --region=us-central1
+   ```
+   - Update deployment.yaml
+   ```bash
+     containers:
+      - name: flask-app
+        image: us-central1-docker.pkg.dev/docker-k8s-431619/flask-app/flask-app
+        ports:
+        - containerPort: 5000
+   ```
+   - Apply the deployment to GKE
+   ```bash
+   kubectl apply -f deployment.yaml
+   ```
+   - Expose the deployment
+   ```bash
+   kubectl expose deployment flask-app --type=LoadBalancer --port=5000
+   ```
+   - Get external IP of service
+   ```bash
+   kubectl get service flask-app
+   ```
