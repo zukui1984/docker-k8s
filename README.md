@@ -18,7 +18,7 @@ cd flask-app
 python3 -m venv venv
 source venv\Scripts\activate
 ```
-<img src="https://github.com/user-attachments/assets/5e69cab8-5cc9-4a57-9aa0-9c9e97e8b2ed" width="200" />
+<img src="https://github.com/user-attachments/assets/2002fd92-7303-4d83-8945-06d8a2e9404b" width="200" />
 
 4. Create Flask application
 ```python
