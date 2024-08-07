@@ -7,7 +7,7 @@
 
 
 ## Project 1 - Flask app with Docker ## 
-1. Installation Python, Flask, Kubernetes, GCP SDK & Docker Desktop, 
+1. Installation Python, Flask, Kubernetes, GCP SDK & Docker Desktop
 2. Create Flask project directory
 ```bash
 mkdir flask-app
@@ -33,7 +33,11 @@ def hello_world():
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
 ```
-5. Create Dockerfile
+5. Authenticate with Google
+    - gcloud auth login
+    - gcloud config set project [project ID]
+
+6. Create Dockerfile
 ```dockerfile
 FROM python:3.9-slim
 WORKDIR /app
@@ -43,15 +47,15 @@ EXPOSE 5000
 ENV FLASK_APP=app.py
 CMD ["python", "app.py"]
 ```
-6. Build Docker Image
+7. Build Docker Image
 ```bash
 docker build -t flask-docker-app .
 ```
-7. Run Docker container
+8. Run Docker container
 ```bash
 docker run -p 5000:5000 flask-docker-app
 ```
-8. Testing on "localhost:5000" & you should see this
+9. Testing on "localhost:5000" & you should see this
 
 <img src="https://github.com/user-attachments/assets/82456aba-42a3-4934-90c3-de1d57df029c" width="300" />
 
