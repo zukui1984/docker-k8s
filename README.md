@@ -10,12 +10,12 @@
 1. Installation Python, Flask & Docker Desktop
 2. Create Flask project directory
 ```bash
-mkdir flask-docker-app
-cd flask-docker-app
+mkdir flask-app
+cd flask-app
 ```
 3. Create Python virtual environment
 ```bash
-python -m venv venv
+python3 -m venv venv
 source venv\Scripts\activate
 ```
 <img src="https://github.com/user-attachments/assets/5e69cab8-5cc9-4a57-9aa0-9c9e97e8b2ed" width="200" />
