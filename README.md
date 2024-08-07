@@ -7,7 +7,7 @@
 
 
 ## Project 1 - Flask app with Docker ## 
-1. Installation Python, Flask & Docker Desktop
+1. Installation Python, Flask, Kubernetes, GCP SDK & Docker Desktop, 
 2. Create Flask project directory
 ```bash
 mkdir flask-app
@@ -84,10 +84,17 @@ gcloud artifacts repositories create flask-app \
     --location=us-central1 \
     --description="Hello Docker Container"
 ```
+<img src="https://github.com/user-attachments/assets/bebf306b-9a39-4a54-906f-9defbddd8f86" width="700"/>
+
 3. Push Docker Image
     - Configure Docker to authenticate request to Artifact Registry. "gcloud auth configure-docker us-central1-docker.pkg.dev"
+
+<img src="https://github.com/user-attachments/assets/9c6fdefc-3ef7-4da7-be12-8c6882138294" width="600"/>
+  
     - Tag Docker local Image. "docker tag flask-kube-demo us-central1-docker.pkg.dev/docker-k8s-431619/flask-app/flask-app"
     - Push Image to Artifact Registry. "docker push us-central1-docker.pkg.dev/docker-k8s-431619/flask-app/flask-app"
+  
+<img src="https://github.com/user-attachments/assets/7190900c-cda8-4e99-b5d2-f19225cb77b1" width="600"/>
 
 4. Set up Google Artifact Registry
     - Create GKE cluster
@@ -107,11 +114,13 @@ gcloud artifacts repositories create flask-app \
     --num-nodes=3 \
     --region=us-central1
    ```
+   <img src="https://github.com/user-attachments/assets/88de0923-e518-4fd7-8244-aa3ce8e4a155" width="600"/> 
+   
    - Get authentication credentials for the cluster
    ```bash
    gcloud container clusters get-credentials flask-app-cluster --region=us-central1
    ```
-   - Update deployment.yaml
+   - Update deployment.yaml (*Change the image!*)
    ```bash
      containers:
       - name: flask-app
@@ -127,6 +136,10 @@ gcloud artifacts repositories create flask-app \
    ```bash
    kubectl expose deployment flask-app --type=LoadBalancer --port=5000
    ```
+   - Check if everything running properly with "kubectl get pods" or "kubectl get deployments"
+     
+    <img src="https://github.com/user-attachments/assets/91085cf6-2210-4c1f-9aaf-b8fb42a4b210" width="600"/>
+   
    - Get external IP of service
    ```bash
    kubectl get service flask-app
